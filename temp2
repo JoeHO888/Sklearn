@@ -1,0 +1,52 @@
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import cross_val_predict
+from sklearn.linear_model import LinearRegression
+import numpy as np
+import matplotlib.pylot  as plot
+
+le=preprocessing.LabelEncoder() 
+le.fit(data[0:2,:])
+category=le.transform(data[0:2,:])
+
+category1=category[:,0]
+category2=category[:,1]
+
+dim11=np.zeros(len(category1))
+dim21=np.zeros(len(category1))
+dim31=np.zeros(len(category1))
+dim11[category1==1]=1
+dim11[category1!=1]=-1
+dim21[category1==2]=1
+dim21[category1!=2]=-1
+dim31[category1==3]=1
+dim31[category1!=3]=-1
+
+dim_1=np.concatenate(dim11[:,np.newaxis],dim21[:,np.newaxis],dim31[:,np.newaxis],axis=1)
+
+dim12=np.zeros(len(category1))
+dim22=np.zeros(len(category1))
+dim32=np.zeros(len(category1))
+dim12[category1==1]=1
+dim12[category1!=1]=-1
+dim22[category1==2]=1
+dim22[category1!=2]=-1
+dim32[category1==3]=1
+dim32[category1!=3]=-1
+
+dim_2=np.concatenate(dim12[:,np.newaxis],dim22[:,np.newaxis],dim32[:,np.newaxis],axis=1)
+
+	X=np.concatenate((data[2:],dim_1,dim_2),axis=1)
+	y=raw_data[5]
+	
+use sklearn.datasets.make_regression to generate data
+	
+get.request("https://localhost:5000/learn")	
+	
+
+
+lr=LinearRegression()
+lr.fit(X,y)
+joblib.dump(lr,"lr_machine.pkl")
+lr=joblib.load(lr,"lr_machine.pkl")
+
+print(lr.predict(something))
