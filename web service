@@ -1,28 +1,33 @@
 from flask import Flask
 import requests
 from flask import request
+import numpy as np
+from time import sleep
 
 app = Flask(__name__)
+
+sleep(1)
 
 @app.route('/data',methods=['GET', 'POST'])
 def data():
     test=request.get_json()
-    print("gdf")
-    print(type(test))
     print(test)
-    print("hi")
     return "data"
+
+sleep(1)
+
+r= requests.get("http://localhost:5000/data")
 
 @app.route('/train')
 def train():
     print("hi")
     return 'train page'
 
+sleep(1)
+
 @app.route('/predict')
 def predict():
     return 'predict page'
 
-@app.route('/user/<username>')
-def show_user_profile(username):
-    return 'User %s' % username
+
 
