@@ -1,0 +1,4 @@
+import requests
+data = {'username':'markchang', 'passwd':'12345'}
+r = requests.post("http://localhost:5000/data", data=data)
+print("hi")
