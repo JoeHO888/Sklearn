@@ -2,9 +2,26 @@ from sklearn.preprocessing import LabelEncoder
 
 import numpy as np
 
+
+use One-Hot-Encoding
+
 if __init__ == main:
-	le=preprocessing.LabelEncoder()
+	le=preprocessing.LabelEncoder() 
 	le.fit(data[0:2,:])
+	#import numpy as np
+d=np.array([1,2,3,2,1,1,2,3])
+dim1=np.zeros(len(d))
+dim2=np.zeros(len(d))
+dim3=np.zeros(len(d))
+dim1[d==1]=1
+dim1[d!=1]=-1
+dim2[d==2]=1
+dim2[d!=2]=-1
+dim3[d==3]=1
+dim3[d!=3]=-1
+print(dim1)
+print(dim2)
+print(dim3)
 	X=np.hstack((le.transform(data[0:2,:]),data[2:5,:])
 	y=raw_data[5]
 	
