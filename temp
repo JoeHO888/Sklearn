@@ -1,0 +1,40 @@
+from sklearn.preprocessing import LabelEncoder
+
+import numpy as np
+
+if __init__ == main:
+	le=preprocessing.LabelEncoder()
+	le.fit(data[0:2,:])
+	X=np.hstack((le.transform(data[0:2,:]),data[2:5,:])
+	y=raw_data[5]
+	
+use sklearn.datasets.make_regression to generate data
+	
+get.request("https://localhost:5000/learn")	
+	
+from sklearn.model_selection import cross_val_predict
+from sklearn.linear_model import LinearRegression
+
+lr=LinearRegression()
+lr.fit(X,y)
+joblib.dump(lr,"lr_machine.pkl")
+lr=joblib.load(lr,"lr_machine.pkl")
+
+print(lr.predict(something))
+
+import matplotlib.pylot  as plot
+
+check overfitting:
+train_sizes, train_loss, test_loss = learning_curve(LinearRegression(), X, y, cv=10, scoring='neg_mean_squared_error',train_sizes=np.linspace((0,1,10)))
+train_loss_mean = -np.mean(train_loss, axis=1)
+test_loss_mean = -np.mean(test_loss, axis=1)
+plt.plot(train_sizes, train_loss_mean, 'o-', color="r",
+         label="Training")
+plt.plot(train_sizes, test_loss_mean, 'o-', color="g",
+        label="Cross-validation")
+
+plt.xlabel("Training examples")
+plt.ylabel("Loss")
+plt.legend(loc="best")
+plt.show()
+	
