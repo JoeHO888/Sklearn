@@ -10,11 +10,11 @@ le.fit(data[0:2,:])
 #Originally want to use one hot encoding, but it increase the computational cost greatly and I want to make the category more general
 #Alternative assign similar features for a category of features similar value and different features a huge amount of difference
 #ie sleeping and reading similar value: 1 and 1.1 and 
-X=np.hstack((le.transform(data[0:2,:]),data[2:5,:])
-y=raw_data[5]
+X=np.hstack((le.transform(data[:,:2]),preprocessing.scale(data[:,2:]))
+y=data[5]
 
 	
-use sklearn.datasets.make_regression to generate data
+#use sklearn.datasets.make_regression to generate data
 	
 get.request("https://localhost:5000/learn")	
 	
