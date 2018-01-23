@@ -1,4 +1,3 @@
-import requests
-data = {'username':'markchang', 'passwd':'12345'}
-r = requests.post("http://localhost:5000/data", data=data)
-print("hi")
+ curl -H "Content-Type: application/json"  -X POST -d '{"age": 1.2, "species": "cat", "score": 3.1}'  http://localhost:5000/test
+ 
+ curl -X POST http://localhost:5000/train
