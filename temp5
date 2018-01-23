@@ -1,0 +1,27 @@
+from flask import Flask
+import requests
+from flask import request
+import numpy as np
+from time import sleep
+
+app = Flask(__name__)
+
+X=[]
+
+@app.route('/test',methods=['GET', 'POST'])
+def test():
+    print(X)
+    test=request.get_json()
+    X.append(test["age"])
+    return "ok"
+
+sleep(1)
+
+print(X)
+
+
+@app.route('/train',methods=['GET', 'POST'])
+def train():
+    return str(X)
+
+
