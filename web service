@@ -19,9 +19,9 @@ sleep(1)
 r= requests.get("http://localhost:5000/data")
 
 @app.route('/train')
-def train():
+def train(model,X,Y):
     print("hi")
-    return 'train page'
+    return model.fit(X,Y)
 
 sleep(1)
 
