@@ -1,5 +1,5 @@
 from flask import Flask
-import requests
+#import requests
 from flask import request
 import numpy as np
 from time import sleep
@@ -11,10 +11,12 @@ app = Flask(__name__)
 
 Data = [ [] for i in range(5)]
 lr = LinearRegression()
-le = LabelEncoder()
+le1 = LabelEncoder()
+le2 = LabelEncoder()
 
 @app.route('/learn',methods=['GET', 'POST'])
 def learn():
+  #only support entry by entry
   raw_data = request.get_json()
   Data[0].append(raw_data["A"])
   Data[1].append(raw_data["B"])
@@ -27,17 +29,19 @@ sleep(1)
 
 @app.route('/train',methods=['GET', 'POST'])
 def train():
-  le.fit(Data[0])
-  category1 = le.transform(Data[0])
-  le.fit(Data[1])
-  category2 = le.transform(Data[1])
+  le1.fit(Data[0])
+  category1 = le1.transform(Data[0])
+  le2.fit(Data[1])
+  category2 = le2.transform(Data[1])
   X = np.concatenate((category1[:,np.newaxis],category2[:,np.newaxis],np.array(Data[2:4]).T),axis=1)
   y = np.array(Data[4])
   lr.fit(X,y)
   return "Model Trained"
 
-@app.route('/predict',methods=['GET', 'POST'])
-def predict():
-  predict = request.get_json()
-  return "Predicted value: " + str(lr.predict(np.array([predict[e] for e in predict])))
-	
+@app.route('/predict',methods=['GET', 'POST'])  
+def predict():  
+  #does not support data category that does not added before
+  predict = request.get_json()   
+  temp1=le1.transform([predict["A"]])[0]
+  temp2=le2.transform([predict["B"]])[0]
+  return str(lr.predict(np.array([temp1, temp2, predict["C"], predict["C"] ])[np.newaxis,:]))
