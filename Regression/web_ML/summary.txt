@@ -1,0 +1,5 @@
+Conclusion:
+
+1. There is no exceptional handling, if you want to predict a result from a input consisting a unrecognized feature or category for machine, machine will report error.
+
+2. For category feature, using LabelEncoder to convert them into discrete integers decrease the accuracy, especially there are many types for each category feature, for instance, "watch TV", "sleep",.... many type of "activity" feature. There is another approach, one hot encoding, it can solve the accuracy problem but enhance the degree of features space, thus the computational cost.
