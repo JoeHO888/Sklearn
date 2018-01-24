@@ -1,4 +1,4 @@
- curl -H "Content-Type: application/json"  -X POST -d '{"A": "cat", "B": "Apple", "C": 1, "D": 10, "E": 3.1}'  http://localhost:5000/learn
- curl -H "Content-Type: application/json"  -X POST -d '{"A": "dog", "B": "Orange", "C": 23, "D": 0.7, "E": 2.1}'  http://localhost:5000/learn
- curl -X POST http://localhost:5000/train
- curl -H "Content-Type: application/json"  -X POST -d '{"A": "dog", "B": "Orange", "C": 23, "D": 0.7}'  http://localhost:5000/predict
+curl -H "Content-Type: application/json"  -X POST -d '{"activity": "sleep", "gender": "M", "temperature": 23.7, "humidity": 0.5, "score": 2.1}'  http://localhost:5000/learn
+curl -H "Content-Type: application/json"  -X POST -d '{"activity": "Watch TV", "gender": "F", "temperature": 28.7, "humidity": 0.2, "score": 1.1}'  http://localhost:5000/learn
+curl -X POST http://localhost:5000/train
+curl -H "Content-Type: application/json"  -X POST -d '{"activity": "Watch TV", "gender": "F", "temperature": 21.7, "humidity": 0.9}'  http://localhost:5000/predict
