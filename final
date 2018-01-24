@@ -42,4 +42,4 @@ def predict():
   predict = request.get_json()   
   feature1=le1.transform([predict["activity"]])[0]
   feature2=le2.transform([predict["gender"]])[0]
-  return "Predicted value: "+str(lr.predict(np.array([feature1, feature2, predict["temperature"], predict["humidity"] ])[np.newaxis,:])[0])
+  return "Predicted score: "+str(lr.predict(np.array([feature1, feature2, predict["temperature"], predict["humidity"] ])[np.newaxis,:])[0])
