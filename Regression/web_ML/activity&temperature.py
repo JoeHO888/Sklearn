@@ -36,6 +36,7 @@ def train():
   lr.fit(X,y)
   return "Model Trained" 
 
+
 #Not for new category features
 @app.route('/predict',methods=['GET', 'POST'])  
 def predict():  
